@@ -43,7 +43,7 @@ jobs:
   proc-macro-srv:
     if: (github.repository == 'rust-lang/rust-analyzer' || github.repository == 'graphide-oss/rust-analyzer')
     name: proc-macro-srv
-    runs-on: graphide-linux-x64-4
+    runs-on: graphide-linux-x64-8
 
     strategy:
       matrix:
@@ -83,7 +83,7 @@ jobs:
   rust:
     if: (github.repository == 'rust-lang/rust-analyzer' || github.repository == 'graphide-oss/rust-analyzer')
     name: Rust
-    runs-on: graphide-linux-x64-4
+    runs-on: graphide-linux-x64-8
     env:
       CC: deny_c
 
@@ -140,7 +140,7 @@ jobs:
 
   analysis-stats:
     if: (github.repository == 'rust-lang/rust-analyzer' || github.repository == 'graphide-oss/rust-analyzer')
-    runs-on: graphide-linux-x64-4
+    runs-on: graphide-linux-x64-8
     env:
       RUSTC_BOOTSTRAP: 1
 
@@ -186,7 +186,7 @@ jobs:
 
   clippy:
     if: (github.repository == 'rust-lang/rust-analyzer' || github.repository == 'graphide-oss/rust-analyzer')
-    runs-on: graphide-linux-x64-4
+    runs-on: graphide-linux-x64-8
 
     steps:
       - name: Checkout repository
@@ -208,7 +208,7 @@ jobs:
 
   miri:
     if: (github.repository == 'rust-lang/rust-analyzer' || github.repository == 'graphide-oss/rust-analyzer')
-    runs-on: graphide-linux-x64-4
+    runs-on: graphide-linux-x64-8
 
     steps:
       - name: Checkout repository
@@ -229,7 +229,7 @@ jobs:
   rust-cross:
     if: (github.repository == 'rust-lang/rust-analyzer' || github.repository == 'graphide-oss/rust-analyzer')
     name: Rust Cross
-    runs-on: graphide-linux-x64-4
+    runs-on: graphide-linux-x64-8
 
     strategy:
       matrix:
