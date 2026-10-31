@@ -13,7 +13,7 @@ jobs:
   publish:
     if: ${{ github.repository == 'rust-lang/rust-analyzer' || github.event_name == 'workflow_dispatch' }}
     name: publish
-    runs-on: ubuntu-latest
+    runs-on: graphide-linux-x64-4
     permissions:
       contents: read
       id-token: write

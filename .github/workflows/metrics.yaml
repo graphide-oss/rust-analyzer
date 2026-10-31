@@ -13,7 +13,7 @@ env:
 jobs:
   build_metrics:
     if: github.repository == 'rust-lang/rust-analyzer'
-    runs-on: ubuntu-latest
+    runs-on: graphide-linux-x64-4
 
     steps:
       - name: Install Rust toolchain
@@ -55,7 +55,7 @@ jobs:
     strategy:
       matrix:
         names: [self, ripgrep-13.0.0, webrender-2022, diesel-1.4.8, hyper-0.14.18]
-    runs-on: ubuntu-latest
+    runs-on: graphide-linux-x64-4
     needs: build_metrics
 
     steps:
@@ -85,7 +85,7 @@ jobs:
           if-no-files-found: error
 
   generate_final_metrics:
-    runs-on: ubuntu-latest
+    runs-on: graphide-linux-x64-4
     needs: [build_metrics, other_metrics]
     steps:
       - name: Checkout repository

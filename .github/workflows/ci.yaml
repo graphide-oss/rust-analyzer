@@ -26,7 +26,7 @@ defaults:
 
 jobs:
   changes:
-    runs-on: ubuntu-latest
+    runs-on: graphide-linux-x64-4
     permissions:
       pull-requests: read
     outputs:
@@ -47,7 +47,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [graphide-linux-x64-4, graphide-windows-x64-4]
 
     steps:
       - name: Checkout repository
@@ -140,7 +140,7 @@ jobs:
 
   analysis-stats:
     if: github.repository == 'rust-lang/rust-analyzer'
-    runs-on: ubuntu-latest
+    runs-on: graphide-linux-x64-4
     env:
       RUSTC_BOOTSTRAP: 1
 
@@ -170,7 +170,7 @@ jobs:
 
   rustfmt:
     if: github.repository == 'rust-lang/rust-analyzer'
-    runs-on: ubuntu-latest
+    runs-on: graphide-linux-x64-4
 
     steps:
       - name: Checkout repository
@@ -186,7 +186,7 @@ jobs:
 
   clippy:
     if: github.repository == 'rust-lang/rust-analyzer'
-    runs-on: ubuntu-latest
+    runs-on: graphide-linux-x64-4
 
     steps:
       - name: Checkout repository
@@ -208,7 +208,7 @@ jobs:
 
   miri:
     if: github.repository == 'rust-lang/rust-analyzer'
-    runs-on: ubuntu-latest
+    runs-on: graphide-linux-x64-4
 
     steps:
       - name: Checkout repository
@@ -229,7 +229,7 @@ jobs:
   rust-cross:
     if: github.repository == 'rust-lang/rust-analyzer'
     name: Rust Cross
-    runs-on: ubuntu-latest
+    runs-on: graphide-linux-x64-4
 
     strategy:
       matrix:
@@ -319,7 +319,7 @@ jobs:
 
   typo-check:
     name: Typo Check
-    runs-on: ubuntu-latest
+    runs-on: graphide-linux-x64-4
     timeout-minutes: 10
     env:
       FORCE_COLOR: 1
@@ -356,7 +356,7 @@ jobs:
     #
     # ALL THE PREVIOUS JOBS NEED TO BE ADDED TO THE `needs` SECTION OF THIS JOB!
     if: ${{ !cancelled() }}
-    runs-on: ubuntu-latest
+    runs-on: graphide-linux-x64-4
     steps:
       # Manually check the status of all dependencies. `if: failure()` does not work.
       - name: Conclusion
@@ -369,7 +369,7 @@ jobs:
   cancel-if-matrix-failed:
     needs: rust
     if: ${{ always() }}
-    runs-on: ubuntu-latest
+    runs-on: graphide-linux-x64-4
     steps:
       - name: Cancel parallel jobs
         run: |
