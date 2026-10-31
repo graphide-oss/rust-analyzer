@@ -21,7 +21,7 @@ jobs:
   rust:
     if: ${{ github.repository == 'rust-lang/rust-analyzer' || github.event_name == 'workflow_dispatch' }}
     name: Rust
-    runs-on: ubuntu-latest
+    runs-on: graphide-linux-x64-4
     env:
       CC: deny_c
 
