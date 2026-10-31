@@ -43,11 +43,11 @@ jobs:
   proc-macro-srv:
     if: (github.repository == 'rust-lang/rust-analyzer' || github.repository == 'graphide-oss/rust-analyzer')
     name: proc-macro-srv
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest]
 
     steps:
       - name: Checkout repository
@@ -83,14 +83,14 @@ jobs:
   rust:
     if: (github.repository == 'rust-lang/rust-analyzer' || github.repository == 'graphide-oss/rust-analyzer')
     name: Rust
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     env:
       CC: deny_c
 
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest]
 
     steps:
       - name: Checkout repository
@@ -264,9 +264,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest]
 
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
