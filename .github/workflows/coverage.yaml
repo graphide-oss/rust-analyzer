@@ -11,7 +11,7 @@ env:
 
 jobs:
   coverage:
-    runs-on: ubuntu-latest
+    runs-on: graphide-linux-x64-4
     env:
       RUSTC_BOOTSTRAP: 1
     steps:

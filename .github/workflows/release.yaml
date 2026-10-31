@@ -154,7 +154,7 @@ jobs:
   dist-x86_64-unknown-linux-musl:
     if: ${{ github.repository == 'rust-lang/rust-analyzer' || github.event_name == 'workflow_dispatch' }}
     name: dist (x86_64-unknown-linux-musl)
-    runs-on: ubuntu-latest
+    runs-on: graphide-linux-x64-4
     env:
       RA_TARGET: x86_64-unknown-linux-musl
       # For some reason `-crt-static` is not working for clang without lld
@@ -199,7 +199,7 @@ jobs:
 
   publish:
     if: ${{ github.repository == 'rust-lang/rust-analyzer' || github.event_name == 'workflow_dispatch' }}
-    runs-on: ubuntu-latest
+    runs-on: graphide-linux-x64-4
     needs: ["dist", "dist-x86_64-unknown-linux-musl"]
     steps:
       - name: Checkout repository
@@ -245,7 +245,7 @@ jobs:
   publish-extension:
     if: ${{ github.repository == 'rust-lang/rust-analyzer' || github.event_name == 'workflow_dispatch' }}
     name: publish-extension (${{ matrix.cmd }})
-    runs-on: ubuntu-latest
+    runs-on: graphide-linux-x64-4
     needs: publish
     strategy:
       fail-fast: false
