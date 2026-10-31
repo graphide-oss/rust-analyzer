@@ -16,7 +16,7 @@ env:
 
 jobs:
   rustdoc:
-    if: github.repository == 'rust-lang/rust-analyzer'
+    if: (github.repository == 'rust-lang/rust-analyzer' || github.repository == 'graphide-oss/rust-analyzer')
     runs-on: ubuntu-latest
 
     steps:
